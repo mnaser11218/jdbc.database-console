@@ -4,13 +4,20 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 
 abstract public class ConsoleAbstractClass implements ConsoleInterface {
-    MyObject myObject = new MyObject();
+   private final MyObject myObject;
     public ConsoleAbstractClass() {
+        myObject = new MyObject();
+        myObject.run();
+
     }
 
-    public ResultSet getExecuteQuery(Connection mysqlDbConnection, String query){
-        return myObject.executeQuery(mysqlDbConnection, query);
+    public ResultSet getExecuteQuery(String query){
+        return myObject.executeQuery(getConnection("mysql"), query);
     };
+    public void getExecuteStatement(String query){
+        myObject.executeStatement(getConnection("mysql"), query);
+    };
+
 
     public void getPrintResults(ResultSet resultSet){
         myObject.printResults(resultSet);

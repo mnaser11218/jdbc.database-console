@@ -5,8 +5,7 @@ import java.sql.ResultSet;
 
 public class Console extends MyObject{
     Connection mysqlDbConnection = getConnection("mysql");
-    //myObject.registerJDBCDriver();
-    //Connection mysqlDbConnection = getConnection("mysql");
+
 
     public void getData(){
         String query = "SELECT * FROM databaseName.pokemonTable;";
@@ -26,7 +25,7 @@ public class Console extends MyObject{
     }
 
     public void deleteRow(String id){
-       String query = String.format("DELETE FROM table_name WHERE id=%s", id);
+       String query = String.format("DELETE FROM databaseName.pokemonTable WHERE id=%s", id);
        executeStatement(mysqlDbConnection, query);
        getData();
     }

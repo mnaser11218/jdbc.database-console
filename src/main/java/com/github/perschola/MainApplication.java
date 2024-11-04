@@ -7,6 +7,6 @@ public class MainApplication {
         console.run();
 //        myObject.run();
         console.addRow("19", "mohammed", "3", "4");
-
+        console.deleteRow("19");
     }
 }

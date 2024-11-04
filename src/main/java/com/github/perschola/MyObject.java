@@ -17,7 +17,7 @@ public class MyObject implements Runnable {
                 .append("id int auto_increment primary key,")
                 .append("name text not null,")
                 .append("primary_type int not null,")
-                .append("secondary_type int null);").toString());
+                .append("secondary_type int not null);").toString());
 
         executeStatement(mysqlDbConnection, new StringBuilder()
                 .append("INSERT INTO databaseName.pokemonTable ")
@@ -27,15 +27,6 @@ public class MyObject implements Runnable {
 
         );
 
-//        executeStatement(mysqlDbConnection, new StringBuilder()
-//                        .append("INSERT INTO databaseName.pokemonTable ")
-//                        .append("(id, name, primary_type, secondary_type)")
-//                        .append(" VALUES (15, 'pikachu', 3, 7);").toString()
-//        );
-
-//        String query = "SELECT * FROM databaseName.pokemonTable;";
-//        ResultSet resultSet = executeQuery(mysqlDbConnection, query);
-//        printResults(resultSet);
     }
 
     void registerJDBCDriver() {

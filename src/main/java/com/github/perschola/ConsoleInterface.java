@@ -18,9 +18,6 @@ public interface ConsoleInterface {
       getPrintResults(resultSet);
     }
 
-
-
-
     default void getDataById(String id){
         String query = String.format("SELECT * FROM databaseName.pokemonTable where id=%s", id);
         ResultSet resultSet = getExecuteQuery(query);
@@ -56,6 +53,10 @@ while(running) {
             addRow(input[0], input[1], input[2], input[3]);
             break;
         case "2":
+            userInput = console.getStringInput("Enter id of user");
+            getDataById(userInput);
+            break;
+        case "3":
             userInput = console.getStringInput("Enter id of user to delete.");
             deleteRow(userInput);
             break;

@@ -39,11 +39,17 @@ public interface ConsoleInterface {
         getExecuteStatement(query);
         getData();
     }
+    default void updateRow( String id,String name, String primary_type, String secondary_type){
+        String query = String.format("UPDATE databaseName.pokemonTable\n" +
+                "SET name = '%s', primary_type = %s, secondary_type=%s \n" +
+                "WHERE id=%s;", name, primary_type,secondary_type,id);
+        getExecuteStatement(query);
+    }
 
     default void start(){
         IOConsole console = new IOConsole();
         boolean running = true;
-while(running) {
+    while(running) {
 
     String userInput = console.getStringInput("Choose one: \n1- add \n2-getUser \n3-delete \n4-update \n5-exit");
     switch (userInput) {
@@ -60,10 +66,11 @@ while(running) {
             userInput = console.getStringInput("Enter id of user to delete.");
             deleteRow(userInput);
             break;
-
-
-
-
+        case "4":
+            userInput = console.getStringInput("Enter id, name, primary_type, secondary_type of user to update");
+            String[]values= userInput.split(" ");
+            updateRow(values[0],values[1], values[2], values[3]);
+            break;
         case "5":
             running = false;
     }

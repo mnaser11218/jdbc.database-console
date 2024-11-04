@@ -22,11 +22,20 @@ public class MyObject implements Runnable {
         executeStatement(mysqlDbConnection, new StringBuilder()
                 .append("INSERT INTO databaseName.pokemonTable ")
                 .append("(id, name, primary_type, secondary_type)")
-                .append(" VALUES (12, 'Ivysaur', 3, 7);").toString());
+                .append(" VALUES (12, 'Ivysaur', 3, 7);").toString()
 
-        String query = "SELECT * FROM databaseName.pokemonTable;";
-        ResultSet resultSet = executeQuery(mysqlDbConnection, query);
-        printResults(resultSet);
+
+        );
+
+//        executeStatement(mysqlDbConnection, new StringBuilder()
+//                        .append("INSERT INTO databaseName.pokemonTable ")
+//                        .append("(id, name, primary_type, secondary_type)")
+//                        .append(" VALUES (15, 'pikachu', 3, 7);").toString()
+//        );
+
+//        String query = "SELECT * FROM databaseName.pokemonTable;";
+//        ResultSet resultSet = executeQuery(mysqlDbConnection, query);
+//        printResults(resultSet);
     }
 
     void registerJDBCDriver() {
